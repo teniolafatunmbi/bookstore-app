@@ -7,6 +7,10 @@ const port = process.env.PORT || 4000
 const bookRoutes = require("./src/routes/bookRoutes")
 const authRoutes = require("./src/routes/authRoutes")
 
+// SEEDERS
+const { seedAdmin } = require("./src/seeders/admin")
+// console.log(seedAdmin());
+
 app.use(express.json())
 
 dbSetup();
