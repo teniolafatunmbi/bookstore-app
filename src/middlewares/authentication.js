@@ -17,8 +17,7 @@ exports.authenticateUser = (req, res, next) => {
         // check if it is valid
         if(!decodedToken) return res.status(401).json({ message: "invalid authorization token. please login"})
         // allow user to continue with request
-        next()
+        console.log(decodedToken);
     })
     
-    next()
 }
