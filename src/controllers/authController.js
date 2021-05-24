@@ -34,7 +34,8 @@ exports.registerNewUser = (req, res) => {
                             id: newUser._id,
                             username: newUser.username,
                             firstName: newUser.firstName,
-                            lastName: newUser.lastName
+                            lastName: newUser.lastName,
+                            role: newUser.role
                         }, secret, {expiresIn: expiry}, (err, token) => {
                             if(err) res.status(500).json({ message: err })
                            //send token to user
@@ -66,6 +67,7 @@ exports.loginUser = (req, res) => {
             username: foundUser.username,
             firstName: foundUser.firstName,
             lastName: foundUser.lastName,
+            role: foundUser.role
         }, secret, {
             expiresIn: expiry,
         }, (err, token) => {
