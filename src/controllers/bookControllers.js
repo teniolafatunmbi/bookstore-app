@@ -23,8 +23,8 @@ exports.fetchAllBooks = function (req, res) {
         conditions.category = req.query.category
     }
     //check req.query for filters
-    console.log(conditions)
-    console.log(req.query)
+    // console.log(conditions)
+    // console.log(req.query)
     //if filters exist, use them in Model.find query
     Book.find(req.query, (err, books) => {
         if(err) return res.status(500).json({ message: err })
