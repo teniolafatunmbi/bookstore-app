@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
-const { Schema } = mongoose
+const { Schema } = mongoose;
+
 const userSchema = new Schema({
     firstName: {
         type: String, 
@@ -17,6 +18,11 @@ const userSchema = new Schema({
     },
     password: {
         type: String
+    },
+    role: {
+        type: String,
+        enum: ["regular", "admin"],
+        default: "regular"
     }
 })
 
