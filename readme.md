@@ -23,3 +23,9 @@
     * Send token to user.
 
 * Authenticate the book route (GET).
+* Role-based authentication
+    * SEEDING
+
+* CODE CLEANUP
+    * use environment variables
+    * code refactor
