@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-const secret = "verySecureSECRET";
+const secret = process.env.JWT_SECRET;
 
 exports.authenticateUser = (req, res, next) => {
     // check if there is an authorization token
@@ -19,5 +19,4 @@ exports.authenticateUser = (req, res, next) => {
         // allow user to continue with request
         console.log(decodedToken);
     })
-    
 }
