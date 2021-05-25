@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const { createNewBook, fetchAllBooks, fetchSingleBook, updateSingleBook, deleteSingleBook } = require("../controllers/bookControllers");
-const { authenticateUser } = require("../middlewares/authentication")
+const { authenticateUser, checkIfAdmin } = require("../middlewares/authentication")
 //POST request to /books to create a new book
 router.post("/books", authenticateUser, checkIfAdmin, createNewBook)
 
