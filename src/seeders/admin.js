@@ -1,6 +1,7 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 let password = "admin123";
+
 exports.seedAdmin = () => {
     // check if there is an admin account
     User.findOne({role: "admin"}, (err, admin) => {
