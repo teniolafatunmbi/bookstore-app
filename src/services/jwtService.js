@@ -15,3 +15,13 @@ exports.createToken = (user) => {
         return null;
     }
 }
+
+exports.decodeToken = (token) => {
+    try {
+        let decodedToken = jwt.verify(token, secret);
+        return decodedToken;
+    } catch (err) {
+        if(err) throw err;
+        return null;
+    }
+}
