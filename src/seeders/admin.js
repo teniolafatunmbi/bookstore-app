@@ -7,7 +7,8 @@ exports.seedAdmin = () => {
     User.findOne({role: "admin"}, (err, admin) => {
         if(err) throw err;
         if(admin) return "admin account already exists";
-        
+            
+    // if !adminAcct, create new one
         User.create({
             firstName: "Book",
             lastName: "Goblin",
@@ -30,5 +31,3 @@ exports.seedAdmin = () => {
     })
 }
 
-
-// if !adminAcct, create new one
