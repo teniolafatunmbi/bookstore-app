@@ -40,7 +40,6 @@ exports.registerNewUser = (req, res) => {
                     //        //send token to user
                     if(!token) return res.status(500).json({ message: "Sorry, we could not authenticate you. Please login"})
                     else return res.status(200).json({ message: "user registration successful", token})
-                        })
                     
                 }) 
             })
