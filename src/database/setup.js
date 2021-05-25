@@ -1,7 +1,6 @@
 const mongoose = require("mongoose")
 
-const connectionString = "mongodb://localhost:27017/bookapp"
-
+const connectionString = process.env.DB_URL
 
 // connect to database
 module.exports = function (){
