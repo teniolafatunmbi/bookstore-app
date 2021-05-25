@@ -26,18 +26,11 @@ exports.registerNewUser = (req, res) => {
                 newUser.save((err, savedUser) => {
                     if(err) return res.status(500).json({ message: err })
 
-                    let token = createToken(newUser);
+                    
                     //create JWT for user
-                    // jwt.sign(
-                    //     {
-                    //         id: newUser._id,
-                    //         username: newUser.username,
-                    //         firstName: newUser.firstName,
-                    //         lastName: newUser.lastName,
-                    //         role: newUser.role
-                    //     }, secret, {expiresIn: expiry}, (err, token) => {
-                    //         if(err) res.status(500).json({ message: err })
-                    //        //send token to user
+                    let token = createToken(newUser);
+
+                    //send token to user
                     if(!token) return res.status(500).json({ message: "Sorry, we could not authenticate you. Please login"})
                     else return res.status(200).json({ message: "user registration successful", token})
                     
@@ -60,29 +53,15 @@ exports.loginUser = (req, res) => {
         let match = bcrypt.compare(req.body.password, foundUser.password)
         if (!match) return res.status(401).json({ message: "Incorrect password"})
 
-        // Create a token.
-        jwt.sign({
-            id: foundUser._id,
-            username: foundUser.username,
-            firstName: foundUser.firstName,
-            lastName: foundUser.lastName,
-            role: foundUser.role
-        }, secret, {
-            expiresIn: expiry,
-        }, (err, token) => {
-            if(err) return res.status(500).json({ message: err})
-            // Send token to user.
-            else return res.status(200).json({ 
-                message: "user logged in",
-                token
-            }) 
+        //create JWT for user
+        let token = createToken(newUser);
+
+        //send token to user
+        if(!token) return res.status(500).json({ message: "Sorry, we could not authenticate you. Please login"})
+        else return res.status(200).json({ 
+            message: "user logged in",
+            token
+        }) 
         
         })
-    })
-    
-    
-    
-
-
-
 }
