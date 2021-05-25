@@ -3,7 +3,7 @@ const router = express.Router()
 const { createNewBook, fetchAllBooks, fetchSingleBook, updateSingleBook, deleteSingleBook } = require("../controllers/bookControllers");
 const { authenticateUser } = require("../middlewares/authentication")
 //POST request to /books to create a new book
-router.post("/books", authenticateUser, createNewBook)
+router.post("/books", authenticateUser, checkIfAdmin, createNewBook)
 
 //GET request to /books to fetch all books
 router.get("/books", authenticateUser, fetchAllBooks)
