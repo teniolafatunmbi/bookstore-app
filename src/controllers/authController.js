@@ -54,7 +54,7 @@ exports.loginUser = (req, res) => {
         if (!match) return res.status(401).json({ message: "Incorrect password"})
 
         //create JWT for user
-        let token = createToken(newUser);
+        let token = createToken(foundUser);
 
         //send token to user
         if(!token) return res.status(500).json({ message: "Sorry, we could not authenticate you. Please login"})
