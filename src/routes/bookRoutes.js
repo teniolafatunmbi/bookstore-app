@@ -6,7 +6,7 @@ const { authenticateUser, checkIfAdmin } = require("../middlewares/authenticatio
 router.post("/books", authenticateUser, checkIfAdmin, createNewBook)
 
 //GET request to /books to fetch all books
-router.get("/books", authenticateUser, fetchAllBooks)
+router.get("/books", authenticateUser, checkIfAdmin, fetchAllBooks)
 
 //GET request to /books/id to fetch a single book
 router.get("/books/:id", authenticateUser,fetchSingleBook)
