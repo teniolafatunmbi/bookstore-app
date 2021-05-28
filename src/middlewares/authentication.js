@@ -20,6 +20,7 @@ exports.authenticateUser = (req, res, next) => {
 }
 
 exports.checkIfAdmin = (req, res, next) => {
+    console.log(req.user)
     if(req.user.role !== "admin") return res.status(401).json({ message: "this route is restricted to admin users"});
     return next();
 }
