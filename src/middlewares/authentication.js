@@ -1,5 +1,3 @@
-const jwt = require("jsonwebtoken")
-const secret = process.env.JWT_SECRET;
 const { decodeToken } = require("../services/jwtService");
 
 exports.authenticateUser = (req, res, next) => {
