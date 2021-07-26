@@ -13,8 +13,18 @@ app.use(express.json());
 //DATABASE SETUP
 dbSetup();
 
+app.get("/", async(req, res) => {
+    try{
+        return res.status(200).json({ message: "welcome to a bookstore application."});
+    }
+    catch(err){
+        throw err;
+    }
+})
+
 //REQUIRE ROUTES.
 require("./src/routes/index.routes")(app);
+
 
 
 app.listen(port, (err) => {
