@@ -1,20 +1,13 @@
-const Book = require("../models/book")
+const Book = require("../models/book.model")
 
-exports.createNewBook = function (req, res) {
-    Book.create({
-        // title: req.body.title, 
-        // author: req.body.author,
-        // description: req.body.description,
-        // category: req.body.category,
-        // purchaseCount: req.body.purchaseCount,
-        // imageUrl: req.body.imageUrl,
-        // tags: req.body.tags,
-        // color: req.body.color
-        ...req.body
-    }, (err, newBook) => {
-        if (err) return res.status(500).json({ message: err})
-        else return res.status(200).json({ message: "new book created", newBook})
-    })
+exports.createNewBook =  async(req, res) => {
+    try{
+        const newBook = await Book.create({ ...req.body });
+        return res.status(200).json({ message: "new book created", newBook});
+    }
+    catch(err){
+        throw err;
+    }
 }
 
 exports.fetchAllBooks = async(req, res) => {
