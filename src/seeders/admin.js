@@ -1,4 +1,4 @@
-const User = require("../models/user");
+const User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 let password = "admin123";
 
@@ -10,8 +10,8 @@ exports.seedAdmin = () => {
             
     // if !adminAcct, create new one
         User.create({
-            firstName: "Book",
-            lastName: "Goblin",
+            firstname: "Book",
+            lastname: "Goblin",
             username: "bookgoblin",
             role: "admin"
         }, (err, user) => {
